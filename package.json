@@ -1,0 +1,22 @@
+{
+  "name": "deepspeech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "childprocess": "^2.0.2",
+    "deepspeech": "0.9.3",
+    "express": "^4.16.4",
+    "firebase-admin": "^6.4.0",
+    "node-wav": "0.0.2",
+    "sox-stream": "^2.0.3",
+    "util": "^0.11.1"
+  },
+  "license": "ISC"
+}

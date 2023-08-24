@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+
+
+        <script defer src="./nextPage.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+
+
+    <style>
+        .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+
+</head>
+
+<body>
+    <header class="pt-5">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5">
+                <div class="col">
+                    <h1 class="display-4 fw-bold mb-5" style="margin-left: 8px;padding-left: 92px;">AutoNote&nbsp;<span
+                            class="underline">transcribe</span>.</h1>
+                </div>
+                <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="text-center">
+                        <p class="fs-5 text-muted mb-5">You can edit the text and download result.</p>
+
+
+                        <textarea id="textarea"
+                            style="margin-right: -3px;padding-bottom: 0px;margin-left: 7px;padding-top: 0px;padding-right: 0px;margin-top: 0px;width: 493px;height: 412px;">
+                        </textarea>
+
+
+
+                        <form class="d-flex justify-content-center flex-wrap" method="post" data-bs-theme="light">
+                            <div class="shadow-lg mb-3"></div>
+                            <div class="shadow-lg mb-3"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col">
+                    
+                    
+                    
+                    <button class="btn btn-primary" type="button" id="generate-pdf"
+                        style="padding-left: 24px;margin-left: 22px;--bs-primary: #24285b;--bs-primary-rgb: 36,40,91;margin-top: 80px;">Convert
+                        to PDF</button>
+                        
+                        
+                        
+                        <a id="download-pdf" style="display: none" download="generated-pdf.pdf">Download PDF</a>
+
+                        <button class="btn btn-primary" type="button"
+                        style="margin-top: 16px;margin-left: 23px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Format</button>
+                        
+                        
+                        <button
+                        class="btn btn-primary" type="button"
+                        style="margin-left: 21px;margin-right: 13px;padding-left: 27px;margin-top: 22px;padding-right: 12px;">Convert
+                        to Word</button>
+                    <ul class="list-group" style="margin-top: 150px;margin-left: 18px;">
+                        <li class="list-group-item"
+                            style="margin-top: -35px;margin-bottom: 4px;padding-top: 0px;padding-bottom: 0px;"><span
+                                style="font-weight: bold;font-size: 15px;"><div class="loader" id="fetch-loader"></div>
+                                Transcribe Progress</span></li>
+                        <li class="list-group-item">
+                            <ul>
+                                <li>File Uploaded &#10004;</li>
+                                <li id="fetch-status-1">Transcribing &#x23F3;</li>
+                                <li id="fetch-status-2">Result Fetching &#x23F3;</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-10 mx-auto">
+                    <div class="text-center position-relative"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section></section>
+    <section></section>
+    <section></section>
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">Copyright © 2023</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.min.js"></script>
+</body>
+
+</html>
