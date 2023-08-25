@@ -1,12 +1,63 @@
 const textArea = document.querySelector("#textarea");
-const generatePDFButton = document.getElementById("generate-pdf");
-const downloadPDFLink = document.getElementById("download-pdf");
-
-
 
 const isFetched1 = document.getElementById("fetch-status-1");
 const isFetched2 = document.getElementById("fetch-status-2");
 const isFetchedLoading = document.getElementById("fetch-loader");
+
+//Grammarly Part
+
+
+
+
+//Get CurrentDate Function def
+function getCurrentDate(){
+  const date = new Date();
+  let currentDay = String(date.getDate()).padStart(2, '0');
+  let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
+  let currentYear = date.getFullYear();
+
+  let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+  return currentDate;
+}
+
+
+
+//PdfMake 
+
+document.getElementById("convertToPDFButton").addEventListener("click", function () {
+  // Get the text from the textarea
+  var textContent = textArea.value;
+
+  // Define the PDF content using pdfmake
+  var docDefinition = {
+    content: [
+      { text: textContent, fontSize: 16, margin: [0, 0, 0, 15], lineHeight: 1.4 }
+    ]
+  };
+
+  // Generate the PDF document
+  //Get date
+  // Date object
+  
+  let currentDate = getCurrentDate();
+  pdfMake.createPdf(docDefinition).download(`AutoNote - ${currentDate}.pdf`);
+});
+
+
+//Handle DOCX conversion
+document.getElementById("convertToDocx").addEventListener("click", function () {
+  
+  var preHtmlContent = textArea.value;
+  
+  //Preprocessing and adding date to the docx file
+  let currentDate = getCurrentDate();
+  var htmlContent = `<h4> DATE: ${currentDate}</h4> <p>${preHtmlContent}</p>`;
+
+  
+  var converted = htmlDocx.asBlob(htmlContent);
+
+  saveAs(converted, `AutoNote - ${currentDate}.docx`);
+});
 
 
 //get the query parameters from the url
@@ -42,26 +93,13 @@ async function geturl(coutry) {
     isFetched1.innerHTML = 'Transcribed &#10004;';
     isFetched2.innerHTML = 'Fetched &#10004;';
     isFetchedLoading.style.display = "none";
-
+    //Then enable all the buttons
+    document.getElementById("convertToPDFButton").removeAttribute("disabled");
+    document.getElementById("convertToDocx").removeAttribute("disabled");
 
     
     textArea.value = transcribeContentOutput + "\n";
-    function generatePDF() {
-      console.log(downloadPDFLink);
-
-      const pdf = new jsPDF();
-      const textContent = textArea.value;
-
-      pdf.text(textContent, 10, 10);
-
-      // Save the PDF
-      const pdfData = pdf.output("blob");
-      const pdfUrl = URL.createObjectURL(pdfData);
-
-      downloadPDFLink.href = pdfUrl;
-      downloadPDFLink.style.display = "block";
-    }
-    generatePDFButton.addEventListener("click", generatePDF);
+    
 
     // console.log(Data1);
   } catch (error) {
